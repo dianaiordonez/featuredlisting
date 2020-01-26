@@ -1,8 +1,8 @@
 generic:
-  other: Generic request
+  other: Information
 coop:
-  other: Cooperation
+  other: Showing
 business:
-  other: Business-related (e.g. application)
+  other: Contact me
 project:
-  other: Project
+  other: Other
