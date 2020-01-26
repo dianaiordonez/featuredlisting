@@ -1,8 +1,8 @@
-infromation:
-  other: Information
 showing:
-  other: Showing
-contactme:
-  other: Contact me
-miscellaneous:
-  other: Other
+  other: showing
+information:
+  other: information
+callme:
+  other: contact me
+# project:
+# other: Project
