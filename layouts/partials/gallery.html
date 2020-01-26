@@ -1,0 +1,93 @@
+<section class="gallery" id="work">
+  <div class="row">
+
+    <!-- First 4 characters of each gallery page's unique ID -->
+    {{ range where .Site.RegularPages "Section" "gallery" }}
+      <!-- Scratch is used to set page-scoped variable outside of this loop-->
+      <!-- {{ .Scratch.Set "$modalID" (slicestr .File.UniqueID 0 4) }} -->
+      {{ .Scratch.Set "$modalID" .File.BaseFileName }}
+
+    {{ end }}
+
+    {{ $galleryTotal := len (where .Site.RegularPages "Section" "gallery") }}
+    {{ $galleryReverse := (where .Site.RegularPages.Reverse "Section" "gallery") }}
+
+    <!-- If gallery is an odd total -->
+    {{ if not (modBool $galleryTotal 2) }}
+
+      <!-- If gallery is only one item, display it fully -->
+      {{ if eq $galleryTotal 1 }}
+        {{ range first 3 $galleryReverse }}
+          <div class="gallery-item col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+            <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
+            <div class="row middle-xs center-xs overlay">
+              {{ partial "gallery-link.html" . }}
+              <h2>{{ .Title }}</h2>
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+
+      <!-- If gallery is greater than 2 items, first 3 items display together on first row -->
+      {{ if gt $galleryTotal 2 }}
+        {{ range first 3 $galleryReverse }}
+          <div class="gallery-item col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+            <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
+            <div class="row middle-xs center-xs overlay">
+              {{ partial "gallery-link.html" . }}
+              <h2>{{ .Title }}</h2>
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+
+      <!-- If gallery is greater than 3 items, all items after the first 3 display evenly in grid columns and rows -->
+      {{ if gt $galleryTotal 3 }}
+        {{ range after 3 $galleryReverse }}
+
+          <!-- If gallery items are divisible by 3, they will appear in columns of 3 -->
+          {{ $col := (mod $galleryTotal 3) }}
+          <div class="gallery-item col-xs-12 col-md-6
+          {{- if gt $galleryTotal 5 }}
+            {{- if eq $col 0 }} col-lg-4
+            {{- else }} col-lg-3
+            {{- end }}
+          {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+          <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
+            <div class="row middle-xs center-xs overlay">
+              {{ partial "gallery-link.html" . }}
+              <h2>{{ .Title }}</h2>
+            </div>
+          </div>
+
+        {{ end }}
+      {{ end }}
+
+    {{ end }}
+
+    <!-- If gallery is an even total, all items display evenly in grid columns and rows -->
+    {{ if modBool $galleryTotal 2 }}
+      {{ range $galleryReverse }}
+
+        <!-- If gallery items are great than 7 and are divisible by 4, they will appear in columns of 4, else in columns of 2 or 3 -->
+        <div class="gallery-item col-xs-12
+        {{- if gt $galleryTotal 1 }} col-md-6
+          {{- if gt $galleryTotal 7 }}
+            {{- if modBool $galleryTotal 4 }} col-lg-3
+            {{- else }} col-lg-4
+            {{- end }}
+          {{- end }}
+        {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+        <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
+          <div class="row middle-xs center-xs overlay">
+            {{ partial "gallery-link.html" . }}
+            <h2>{{ .Title }}</h2>
+          </div>
+        </div>
+
+      {{ end }}
+    {{ end }}
+
+    <iframe width="400" height="500" src="https://www.youtube.com/embed/wVv9xq7V9Z8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.764750547568!2d-80.33318228506735!3d25.612732321001598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9c4303e371785%3A0x4600c07dce52cdc0!2s8552%20SW%20169th%20Terrace%2C%20Palmetto%20Bay%2C%20FL%2033157!5e0!3m2!1sen!2sus!4v1579898906078!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
