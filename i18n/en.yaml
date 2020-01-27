@@ -1,8 +1,8 @@
-showing:
-  other: showing
-information:
-  other: information
-callme:
-  other: contact me
-# project:
-# other: Project
+generic:
+  other: Information
+coop:
+  other: Showing
+business:
+  other: Call me
+## project:
+##  other: Project
