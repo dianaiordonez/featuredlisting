@@ -26,4 +26,4 @@ The Village of Palmetto Bay is a vibrant community of more than 24,000 residents
 
 [Read More](https://www.palmettobay-fl.gov/)
 
-</div>
+![Real Satisfied](/images/Testimonial_Helena__amp__Herbert_Noll.png)
