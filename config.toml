@@ -1,5 +1,5 @@
 title = "8552 SW 169 Ter. Palmetto Bay 33157"
-baseURL = "https://featuredlisting.forsale/"
+baseURL = "https://zen-archimedes-8d593a.netlify.com/"
 languageCode = "en-US"
 theme = "osprey-delight"
 tags = ["Real_Estate", "For_Sale", "Palmetto_Bay"]
@@ -20,7 +20,7 @@ enableEmoji = true
   #   Make sure that the image does not overlay the nav links. Don't be afraid of experimenting!
   logoSmall = "favicon.png"
   favicon = "favicon.png"
-  opengraphImage = "/images/dianabarbarabanner.png"
+  opengraphImage = "/images/osprey-delight.pn"
   googleTagManager = ""
   # [bool] The following will enforce redirection to the baseURL for all sub-directories/-pages.
   #   Example: If you create about.md, Hugo will also create a '/about/index.html'.
